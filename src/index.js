@@ -1,22 +1,30 @@
 require('./scss/index.scss');
-const jsonData = require ('../data.json');
 
-(function displayLists()
-{
-	for(let jsonChild of  jsonData){
-		var section = document.createElement("section");
-		section.className +="card col-xs-12 col-sm-6 col-md-4 col-lg-3 ";
-		var header = document.createElement("h2");
-		var title = document.createTextNode(jsonChild.title);
-		header.appendChild(title);
-		header.className +="card-title";
-		section.appendChild(header);
-		for (let list of jsonChild.lists){
-			section.appendChild(displayListChild(list.list));
-		}
-		document.getElementById("mainCard").appendChild(section);
-	}
-}());
+
+getNotes("http://localhost:3000/collection")
+function getNotes(url) {
+	fetch(url)
+		.then((resp) =>
+			resp.json())
+		.then(function (datum){
+			for (var data of datum){
+				var section = document.createElement("section");
+				section.className +="card col-xs-12 col-sm-6 col-md-4 col-lg-3 ";
+				var header = document.createElement("h2");
+				var title = document.createTextNode(data.title);
+				header.appendChild(title);
+				header.className +="card-title";
+				section.appendChild(header);
+				for (let list of data.lists){
+					section.appendChild(displayListChild(list.list));
+				}
+				document.getElementById("mainCard").appendChild(section);
+			}
+		})
+		.catch(function() {
+			console.log("data failed");
+		})
+}
 
 function displayListChild(listElement){
 	var ul = document.createElement("ul");
@@ -68,11 +76,24 @@ function addNewList(event){
 	}
 }
 
+var btnAddNewList = document.getElementById('btnAddNewList');
+btnAddNewList.addEventListener("click", writeToJSON);
+
+
 function writeToJSON(){
-	var obj = {"nissan": "sentra", "color": "green"};
-	localStorage.setItem('myStorage', JSON.stringify(obj));
-	var obj = JSON.parse(localStorage.getItem('myStorage'));
+	var xhttp = new XMLHttpRequest();
+  	// xhttp.onreadystatechange = function() {
+   //  if (this.readyState == 4 && this.status == 200) {
+   //    document.getElementById("demo").innerHTML = this.responseText;
+   //  }
+  	// };
+	xhttp.open("POST", "http://localhost:3000/collection", true);
+	xhttp.setRequestHeader("Content-type", "application/json");
+	var stringData = {"id": "111", "name": ["xyz"]};
+	var jsoning = JSON.stringify(stringData);
+	xhttp.send(jsoning);
 }
+
 
 function checkEmptySibling(){
 var classes = document.getElementsByClassName("newInputClass");
