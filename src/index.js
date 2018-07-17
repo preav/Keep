@@ -1,11 +1,11 @@
 require('./scss/index.scss');
 const jsonData = require ('../data.json');
 
-function displayLists()
+(function displayLists()
 {
 	for(let jsonChild of  jsonData){
 		var section = document.createElement("section");
-		section.className +="card shadow-sm col-xs-12 col-sm-6 col-md-4 col-lg-3 ";
+		section.className +="card col-xs-12 col-sm-6 col-md-4 col-lg-3 ";
 		var header = document.createElement("h2");
 		var title = document.createTextNode(jsonChild.title);
 		header.appendChild(title);
@@ -16,7 +16,7 @@ function displayLists()
 		}
 		document.getElementById("mainCard").appendChild(section);
 	}
-}
+}());
 
 function displayListChild(listElement){
 	var ul = document.createElement("ul");
@@ -34,10 +34,30 @@ function displayListChild(listElement){
 		};
 		input.name = listItem.listValue;
 		li.appendChild(input);
-		li.append(document.createTextNode(listItem.listValue));
-		ul.append(li);
+		li.appendChild(document.createTextNode(listItem.listValue));
+		ul.appendChild(li);
 	}
 	return ul;
 }
 
-displayLists();
+var newListId = document.getElementById("List-0");
+newListId.addEventListener('keypress', addNewList);
+var count = 0;
+
+function addNewList(event){
+	if (event.keyCode === 13){
+		count++;
+		var generateId="List-"+count;
+		var newUl = document.getElementById("newListUl");
+		var newLi = document.createElement("li");
+		var newInput = document.createElement("input");
+		newInput.setAttribute("type", "text");
+		newInput.setAttribute("placeholder", "List item");
+		newInput.setAttribute("id", generateId);
+		newInput.className += "newListClass ";
+		newLi.appendChild(newInput);
+		newUl.appendChild(newLi);
+		newLi.addEventListener('keypress', addNewList);
+		
+	}
+}

@@ -1,13 +1,11 @@
-//give box=shadow to card
+header{
+	background-color: #E7B7BD ;
+}
+
 // .card{
-// 	box-shadow: inset 1px 1px 0 rgba(0,0,0,.1);
-// 	//inset 0 -1px 0 rgba(
+// 	box-shadow: inset 5px 10px;
 // }
 
-header{
-	background-color: #FFBB00;
-}
-
-.card{
-	
-}
+// .card:hover{
+//     box-shadow: inset blur 0 -1px 0 rgba(0,0,0,.07);	
+// }
