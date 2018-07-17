@@ -1,49 +1,17 @@
 {
   "collection": [
     {
-   		"id": 1,
-   		"title": "Hello",
-		"lists": [
-		{
-		  "list": [
-		    {
-		      "listValue": "hello 1",
-		      "date": "16/07/2018",
-		      "isChecked": true
-		    },
-		    {
-		      "listValue": "hello 2",
-		      "date": "16/07/2018",
-		      "isChecked": false
-		    },
-		    {
-		      "listValue": "hello 3",
-		      "date": "16/07/2018",
-		      "isChecked": true
-		    }
-		  ]
-		}
-		]
-    },
-    {
-    	"id": 2,
-      "title": "Bye",
+      "id": "111",
+      "title": "Welcome",
       "lists": [
         {
           "list": [
             {
-              "listValue": "Bye 1",
-              "date": "16/07/2018",
-              "isChecked": true
-            },
-            {
-              "listValue": "Bye 2",
-              "date": "16/07/2018",
+              "listValue": "Welcome 1",
               "isChecked": false
             },
             {
-              "listValue": "Bye 3",
-              "date": "16/07/2018",
+              "listValue": "Welcome 3",
               "isChecked": true
             }
           ]

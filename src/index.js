@@ -1,7 +1,7 @@
 require('./scss/index.scss');
+const Sortable = require('../node_modules/sortablejs');
 
-
-getNotes("http://localhost:3000/collection")
+window.onload = getNotes("http://localhost:3000/collection")
 function getNotes(url) {
 	fetch(url)
 		.then((resp) =>
@@ -20,6 +20,7 @@ function getNotes(url) {
 				}
 				document.getElementById("mainCard").appendChild(section);
 			}
+			callSortable();
 		})
 		.catch(function() {
 			console.log("data failed");
@@ -30,6 +31,7 @@ function displayListChild(listElement){
 	var ul = document.createElement("ul");
 	ul.className +="list-group ";
 	ul.className +="list-group-flush ";
+	ul.setAttribute('id', 'cardUl');
 	for (let listItem of listElement){
 		//console.log(listItem);
 		li = document.createElement("li");
@@ -80,20 +82,18 @@ var btnAddNewList = document.getElementById('btnAddNewList');
 btnAddNewList.addEventListener("click", writeToJSON);
 
 
-function writeToJSON(){
+function writeToJSON(event){
+	event.preventDefault();
+}
+
+function submitToJSON() {
 	var xhttp = new XMLHttpRequest();
-  	// xhttp.onreadystatechange = function() {
-   //  if (this.readyState == 4 && this.status == 200) {
-   //    document.getElementById("demo").innerHTML = this.responseText;
-   //  }
-  	// };
 	xhttp.open("POST", "http://localhost:3000/collection", true);
 	xhttp.setRequestHeader("Content-type", "application/json");
-	var stringData = {"id": "111", "name": ["xyz"]};
+	var stringData = {"id": "1", "title": "Welcome", "lists":[{list:[{"listValue": "Welcome 1", "isChecked": false},{"listValue": "Welcome 1", "isChecked": true}]}]};
 	var jsoning = JSON.stringify(stringData);
 	xhttp.send(jsoning);
 }
-
 
 function checkEmptySibling(){
 var classes = document.getElementsByClassName("newInputClass");
@@ -103,4 +103,9 @@ for (var inside of classes){
 		}
 	}
 	return true
+}
+
+function callSortable(){
+	var el = document.getElementById('cardUl');
+	Sortable.create(el);
 }
