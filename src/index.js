@@ -45,19 +45,41 @@ newListId.addEventListener('keypress', addNewList);
 var count = 0;
 
 function addNewList(event){
-	if (event.keyCode === 13){
+	if (event.keyCode === 13 && (document.activeElement.value.length>0) && (checkEmptySibling())){
 		count++;
-		var generateId="List-"+count;
+		var generateInputId="Input-"+count;
+		var generateListId="List-"+count;
 		var newUl = document.getElementById("newListUl");
 		var newLi = document.createElement("li");
 		var newInput = document.createElement("input");
 		newInput.setAttribute("type", "text");
 		newInput.setAttribute("placeholder", "List item");
-		newInput.setAttribute("id", generateId);
-		newInput.className += "newListClass ";
+		newInput.setAttribute("id", generateInputId);
+		newInput.className += "newInputClass ";
 		newLi.appendChild(newInput);
+		newLi.setAttribute("id", generateListId);
+		newLi.className += "newListClass";
 		newUl.appendChild(newLi);
 		newLi.addEventListener('keypress', addNewList);
-		
+		if (document.activeElement.value.length > 0){
+			var nextList = document.getElementById("Input-"+count);
+			nextList.focus();
+		}
 	}
+}
+
+function writeToJSON(){
+	var obj = {"nissan": "sentra", "color": "green"};
+	localStorage.setItem('myStorage', JSON.stringify(obj));
+	var obj = JSON.parse(localStorage.getItem('myStorage'));
+}
+
+function checkEmptySibling(){
+var classes = document.getElementsByClassName("newInputClass");
+for (var inside of classes){
+	if (inside.value.length < 1){
+			return false;
+		}
+	}
+	return true
 }
