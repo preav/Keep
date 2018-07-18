@@ -4,7 +4,27 @@
       "id": "111",
       "title": "Welcome",
       "lists": [
+        { 
+          "id": "",
+          "list": [
+            {
+              "listValue": "Welcome 1",
+              "isChecked": false
+            },
+            {
+              "listValue": "Welcome 3",
+              "isChecked": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "",
+      "title": "Welcome 11",
+      "lists": [
         {
+          "class": "cardUl",
           "list": [
             {
               "listValue": "Welcome 1",
