@@ -1,7 +1,7 @@
 require('./scss/index.scss');
 import AddNewList from './controller';
 import ConvertToJSON from './services/ConvertToJSON';
-import GetNotes from './services';
+import getNotesFromJSON from './services';
 
 window.onload = displayListOnBoard();
 
@@ -32,7 +32,8 @@ function modalClosing() {
 	if( newCardObject["title"].length > 0 || (newListarray.length > 0) && checkListArrayValue(newListarray)){
 		new ConvertToJSON(newCardObject).convertToJSON();
 	}
-	displayListOnBoard();
+	var notes = new getNotesFromJSON();
+	notes.displayOnScreen(newCardObject);
 }
 
 function getTitleValue() {
@@ -60,8 +61,8 @@ function getLastModifiedTime() {
 }
 
 function displayListOnBoard() {
-	var notes = new GetNotes();
-	notes.getNotes("http://localhost:3000/collection");
+	var notes = new getNotesFromJSON();
+	notes.getNotesFromJSON("http://localhost:3000/collection");
 }
 
 function checkListArrayValue(array) {

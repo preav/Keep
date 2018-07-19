@@ -1,6 +1,7 @@
 const Sortable = require('../../node_modules/sortablejs');
 
-class GetNotes{	
+class GetNotesFromJSON{	
+
 	displayListChild(listElement) {
 	var ul = document.createElement("ul");
 	ul.className +="list-group ";
@@ -30,31 +31,35 @@ class GetNotes{
 		Sortable.create(mainCard);
 	}
 
-	getNotes(url) {
+	getNotesFromJSON(url) {
 		var self = this;		
 		fetch(url)
 		.then((resp) =>
 			resp.json())
 		.then(function (datum){
-			if(datum.length>0){
-				for (var data of datum){
-					var section = document.createElement("section");
-					section.className +="card col-xs-12 col-sm-6 col-md-4 col-lg-3 ";
-					var header = document.createElement("h2");
-					var title = document.createTextNode(data.title);
-					header.appendChild(title);
-					header.className +="card-title";
-					section.appendChild(header);
-					section.appendChild(self.displayListChild(data.list));
-					document.getElementById("mainCard").appendChild(section);
-				}
-				self.callSortable();
-			}
+			self.displayOnScreen(datum);
 		})
 		.catch(function( error ) {
 			console.log(error);
 		})
 	}
+
+	displayOnScreen(datum){
+		if(datum.length>0){
+			for (var data of datum){
+				var sectionDiv = document.createElement("section");
+				sectionDiv.className +="card col-xs-12 col-sm-6 col-md-4 col-lg-3 ";
+				var headerDiv = document.createElement("h2");
+				headerDiv.className +="card-title";
+				var titleDiv = document.createTextNode(data.title);
+				headerDiv.appendChild(titleDiv);
+				sectionDiv.appendChild(headerDiv);
+				sectionDiv.appendChild(this.displayListChild(data.list));
+				document.getElementById("mainCard").appendChild(sectionDiv);
+			}
+			this.callSortable();
+		}
+	}
 }
 
-export default GetNotes;
+export default GetNotesFromJSON;
