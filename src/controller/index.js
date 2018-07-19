@@ -44,8 +44,8 @@ class AddNewList{
 			newLi.addEventListener('keypress', (e) => {this.addNewList(e)});
 		}
 		if (event.keyCode === 13 && (document.activeElement.value.length > 0)){
-				var nextList = document.getElementById("Input-"+this.count);
-				nextList.focus();
+			var nextList = document.getElementById("Input-"+this.count);
+			nextList.focus();
 		}
 	}
 }

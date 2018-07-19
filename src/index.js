@@ -2,8 +2,19 @@ require('./scss/index.scss');
 import AddNewList from './controller';
 import ConvertToJSON from './services/ConvertToJSON';
 import getNotesFromJSON from './services';
+import EditList from './controller/EditList';
 
-window.onload = displayListOnBoard();
+$('#exampleModalCenter').on('shown.bs.modal', function () {
+	$('#newTitle').trigger('focus')
+});
+
+$('#exampleModalCenter').on('hide.bs.modal', function (e) {
+  $('#newTitle').val('');
+  $('input').val('');
+  $('.newInnerCheck').prop('checked', false);
+});
+
+window.onload = displayListOnBoard(event);
 
 document.getElementById("btnAddNewList").addEventListener('click', modalOpened);
 document.getElementById("btnSaveNewList").addEventListener('click', modalClosing);
@@ -60,9 +71,10 @@ function getLastModifiedTime() {
    return datetime;
 }
 
-function displayListOnBoard() {
+function displayListOnBoard(e) {
 	var notes = new getNotesFromJSON();
 	notes.getNotesFromJSON("http://localhost:3000/collection");
+	var editLists = document.getElementsByClassName('editList');
 }
 
 function checkListArrayValue(array) {
@@ -73,4 +85,10 @@ function checkListArrayValue(array) {
 		}
 	}
 	return val;
+}
+
+function editList() {
+	console.log("hey");
+	var edit = new  EditList();
+	edit.editList();
 }

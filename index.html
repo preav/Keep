@@ -2,28 +2,32 @@
 <html lang="en">
 <head>
 	<title> Keep </title>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
 </head>
 <body>
 	<div class="mainContainer container-fluid">
 		<header class="navbar navbar-light row sticky-top"> 
 			<h1 class="navbar-text"> Keep </h1>
 			<button type="button" class="btn btn-primary" id="btnAddNewList" data-toggle="modal" data-target="#exampleModalCenter">
-				+
+				<i class="fas fa-plus"></i>
 			</button>
 		</header>
 		<main class="container-fluid">
 			<div class="row">
-				<p> Take a note... </p>
 				<div role="button"></div>
 			</div>
-			<div class="card-deck row" id="mainCard">
+			<!--Card start-->
+			<div class="container-fluid mainCard">
+				<div class="row">
+					<div class="card-columns" id="mainCard"></div>
+				</div>
 			</div>
 			<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 			  <div class="modal-dialog" role="document">
 			    <div class="modal-content">
 			      <div class="modal-header">
 			        <h5 class="modal-title" id="exampleModalCenterTitle">
-			        	<input type="text" name="newListTitle" class="newListTitle" id="newTitle" placeholder="Title">
+			        	<input type="text" name="newListTitle" class="newListTitle" id="newTitle" placeholder="Title" aria-label="title">
 			        </h5>
 			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 			          <span aria-hidden="true">&times;</span>

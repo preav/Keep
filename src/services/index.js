@@ -4,7 +4,7 @@ class GetNotesFromJSON{
 
 	displayListChild(listElement) {
 	var ul = document.createElement("ul");
-	ul.className +="list-group ";
+	ul.className +="card-text list-group ";
 	ul.className +="list-group-flush ";
 	ul.setAttribute('id', 'cardUl');
 	for (let listItem of listElement){
@@ -37,28 +37,44 @@ class GetNotesFromJSON{
 		.then((resp) =>
 			resp.json())
 		.then(function (datum){
-			self.displayOnScreen(datum);
+			for (var data of datum){
+				self.displayOnScreen(data);
+			}
 		})
 		.catch(function( error ) {
 			console.log(error);
 		})
 	}
 
-	displayOnScreen(datum){
-		if(datum.length>0){
-			for (var data of datum){
-				var sectionDiv = document.createElement("section");
-				sectionDiv.className +="card col-xs-12 col-sm-6 col-md-4 col-lg-3 ";
-				var headerDiv = document.createElement("h2");
-				headerDiv.className +="card-title";
-				var titleDiv = document.createTextNode(data.title);
-				headerDiv.appendChild(titleDiv);
-				sectionDiv.appendChild(headerDiv);
-				sectionDiv.appendChild(this.displayListChild(data.list));
-				document.getElementById("mainCard").appendChild(sectionDiv);
-			}
-			this.callSortable();
-		}
+	displayOnScreen(data){
+		var sectionDiv = document.createElement("section");
+		sectionDiv.className +="card ";
+		var cardBody = document.createElement("div");
+		cardBody.className += "card-body ";
+		var headerContainer = document.createElement("div");
+		headerContainer.className += "d-flex headerContainer justify-content-between ";
+		var headerDiv = document.createElement("h2");
+		headerDiv.className += "card-title headerDiv ";
+		var editFont = document.createElement("i");
+		var titleDiv = document.createTextNode(data.title);
+		headerDiv.appendChild(titleDiv);
+		editFont.className += "far fa-edit editList ";
+		headerContainer.appendChild(headerDiv);
+		headerContainer.appendChild(editFont);
+		//headerContainer.appendChild()
+		cardBody.appendChild(headerContainer);
+		cardBody.appendChild(this.displayListChild(data.list));
+		var para = document.createElement("p");
+		para.className += "card-text";
+		var smallPara = document.createElement("small");
+		smallPara.className += "text-muted";
+		var footer = document.createTextNode("Last modified: "+data.lastModified);
+		smallPara.appendChild(footer);
+		para.appendChild(smallPara);
+		cardBody.appendChild(para);
+		sectionDiv.appendChild(cardBody);
+		document.getElementById("mainCard").appendChild(sectionDiv);
+		this.callSortable();
 	}
 }
 
