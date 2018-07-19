@@ -14,7 +14,7 @@ $('#exampleModalCenter').on('hide.bs.modal', function (e) {
   $('.newInnerCheck').prop('checked', false);
 });
 
-window.onload = displayListOnBoard(event);
+window.onload = displayListOnBoard();
 
 document.getElementById("btnAddNewList").addEventListener('click', modalOpened);
 document.getElementById("btnSaveNewList").addEventListener('click', modalClosing);
@@ -71,10 +71,9 @@ function getLastModifiedTime() {
    return datetime;
 }
 
-function displayListOnBoard(e) {
+function displayListOnBoard() {
 	var notes = new getNotesFromJSON();
 	notes.getNotesFromJSON("http://localhost:3000/collection");
-	var editLists = document.getElementsByClassName('editList');
 }
 
 function checkListArrayValue(array) {
@@ -85,10 +84,4 @@ function checkListArrayValue(array) {
 		}
 	}
 	return val;
-}
-
-function editList() {
-	console.log("hey");
-	var edit = new  EditList();
-	edit.editList();
 }

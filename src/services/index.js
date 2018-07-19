@@ -1,6 +1,19 @@
 const Sortable = require('../../node_modules/sortablejs');
 
-class GetNotesFromJSON{	
+class GetNotesFromJSON{
+	
+	edit(){
+		var editLists = document.querySelectorAll('.editList');
+		for (var edit of editLists) {
+			edit.addEventListener('click', (e) => {
+			this.editModal(e);
+			})
+		}
+	}
+
+	editModal(e) {
+		$('#exampleModalCenter').modal('show');	
+	}
 
 	displayListChild(listElement) {
 	var ul = document.createElement("ul");
@@ -40,6 +53,7 @@ class GetNotesFromJSON{
 			for (var data of datum){
 				self.displayOnScreen(data);
 			}
+			self.edit();
 		})
 		.catch(function( error ) {
 			console.log(error);
@@ -61,7 +75,6 @@ class GetNotesFromJSON{
 		editFont.className += "far fa-edit editList ";
 		headerContainer.appendChild(headerDiv);
 		headerContainer.appendChild(editFont);
-		//headerContainer.appendChild()
 		cardBody.appendChild(headerContainer);
 		cardBody.appendChild(this.displayListChild(data.list));
 		var para = document.createElement("p");
@@ -75,6 +88,7 @@ class GetNotesFromJSON{
 		sectionDiv.appendChild(cardBody);
 		document.getElementById("mainCard").appendChild(sectionDiv);
 		this.callSortable();
+		//this.edit();
 	}
 }
 
