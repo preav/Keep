@@ -1,31 +1,75 @@
 require('./scss/index.scss');
-import GetNotes from './services';
 import AddNewList from './controller';
+import ConvertToJSON from './services/ConvertToJSON';
+import GetNotes from './services';
 
-var notes = new GetNotes();
-notes.getNotes("http://localhost:3000/collection");
+window.onload = displayListOnBoard();
 
-new AddNewList();
+document.getElementById("btnAddNewList").addEventListener('click', modalOpened);
+document.getElementById("btnSaveNewList").addEventListener('click', modalClosing);
+document.getElementById("btnDismissNewList").addEventListener('click', modalDismiss);
+window.listCounter = -1;
+var newCardObject = {};
+var newListarray = [];
 
-// function convertToJSON(){
-// 	var liElement = document.getElementsByClassName('newListClass');
-// 	//console.log(liElement);
-// 	for (var lists of liElement){
-// 		var inputList = lists.innerHTML;
-// 		//console.log(inputList.value);
-// 	}
-// }
-
-function writeToJSON(event){
-	event.preventDefault();
-	submitToJSON();
+function modalOpened() {
+	listCounter++;
+	new AddNewList();
 }
 
-function submitToJSON() {
-	var xhttp = new XMLHttpRequest();
-	xhttp.open("POST", "http://localhost:3000/collection", true);
-	xhttp.setRequestHeader("Content-type", "application/json");
-	var stringData = {"id": "1", "title": "Welcome", "lists":[{list:[{"listValue": "Welcome 1", "isChecked": false},{"listValue": "Welcome 1", "isChecked": true}]}]};
-	var jsoning = JSON.stringify(stringData);
-	xhttp.send(jsoning);
+function modalDismiss() {
+	listCounter--;
+}
+
+function modalClosing() {
+	getTitleValue();
+	var getAllListIds = document.getElementsByClassName('newListClass');
+	for (var getListId of getAllListIds){
+		getListValue(getListId.children[0], getListId.children[1]);
+	}
+	newCardObject["list"] = newListarray;
+	newCardObject["lastModified"] = getLastModifiedTime();
+	if( newCardObject["title"].length > 0 || (newListarray.length > 0) && checkListArrayValue(newListarray)){
+		new ConvertToJSON(newCardObject).convertToJSON();
+	}
+	displayListOnBoard();
+}
+
+function getTitleValue() {
+	var getElement = document.getElementById('newTitle').value;
+	newCardObject["title"] = getElement;
+}
+
+
+function getListValue(elementCheck, elementInput) {
+	var singleListObj = {};
+	singleListObj["listValue"] = elementInput.value;
+	singleListObj["isChecked"] = elementCheck.checked ? true : false;
+	newListarray.push(singleListObj);
+}
+
+function getLastModifiedTime() {
+	var currentdate = new Date(); 
+	var datetime = currentdate.getDate() + "/"
+                + (currentdate.getMonth()+1)  + "/" 
+                + currentdate.getFullYear() + " "  
+                + currentdate.getHours() + ":"  
+                + currentdate.getMinutes() + ":" 
+                + currentdate.getSeconds();
+   return datetime;
+}
+
+function displayListOnBoard() {
+	var notes = new GetNotes();
+	notes.getNotes("http://localhost:3000/collection");
+}
+
+function checkListArrayValue(array) {
+	var val = false;
+	for (var arr of array) {
+		if (arr.listValue.length > 0) {
+			val = true;
+		}
+	}
+	return val;
 }

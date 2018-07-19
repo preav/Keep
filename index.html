@@ -7,7 +7,7 @@
 	<div class="mainContainer container-fluid">
 		<header class="navbar navbar-light row sticky-top"> 
 			<h1 class="navbar-text"> Keep </h1>
-			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+			<button type="button" class="btn btn-primary" id="btnAddNewList" data-toggle="modal" data-target="#exampleModalCenter">
 				+
 			</button>
 		</header>
@@ -25,7 +25,7 @@
 			    <div class="modal-content">
 			      <div class="modal-header">
 			        <h5 class="modal-title" id="exampleModalCenterTitle">
-			        	<input type="text" name="newListTitle" placeholder="Title">
+			        	<input type="text" name="newListTitle" class="newListTitle" id="newTitle" placeholder="Title">
 			        </h5>
 			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 			          <span aria-hidden="true">&times;</span>
@@ -34,13 +34,14 @@
 			      <div class="modal-body" id="newList">
 			      	<ul id="newListUl" class="newOuterList">
 			      		<li id="List-0" name="newInnerList" class="newListClass">
-			      			<input type="text" name="newInnerInput" id="Input-0" class="newInputClass" placeholder="List item" value>
+			      			<input type="checkbox" id="Check-0">
+			      			<input type="text" name="newInnerInput" id="Input-0" class="newInputClass" placeholder="List item">
 			      		</li>
 			      	</ul>
 			      </div>
 			      <div class="modal-footer">
-			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-			        <button type="submit" id="btnAddNewList" data-dismiss="modal" class="btn btn-primary"> Add </button>
+			        <button type="button" id="btnDismissNewList" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			        <button type="submit" id="btnSaveNewList" data-dismiss="modal" class="btn btn-primary"> Add </button>
 			      </div>
 			    </div>
 			  </div>

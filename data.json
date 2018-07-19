@@ -1,42 +1,15 @@
 {
   "collection": [
     {
-      "id": "111",
-      "title": "Welcome",
-      "lists": [
-        { 
-          "id": "",
-          "list": [
-            {
-              "listValue": "Welcome 1",
-              "isChecked": false
-            },
-            {
-              "listValue": "Welcome 3",
-              "isChecked": true
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "",
-      "title": "Welcome 11",
-      "lists": [
+      "title": "dsfasd",
+      "list": [
         {
-          "class": "cardUl",
-          "list": [
-            {
-              "listValue": "Welcome 1",
-              "isChecked": false
-            },
-            {
-              "listValue": "Welcome 3",
-              "isChecked": true
-            }
-          ]
+          "listValue": "",
+          "isChecked": false
         }
-      ]
+      ],
+      "lastModified": "19/7/2018 15:30:11",
+      "id": 1
     }
   ]
 }

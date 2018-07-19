@@ -36,20 +36,20 @@ class GetNotes{
 		.then((resp) =>
 			resp.json())
 		.then(function (datum){
-			for (var data of datum){
-				var section = document.createElement("section");
-				section.className +="card col-xs-12 col-sm-6 col-md-4 col-lg-3 ";
-				var header = document.createElement("h2");
-				var title = document.createTextNode(data.title);
-				header.appendChild(title);
-				header.className +="card-title";
-				section.appendChild(header);
-				for (let list of data.lists){
-					section.appendChild(self.displayListChild(list.list));
+			if(datum.length>0){
+				for (var data of datum){
+					var section = document.createElement("section");
+					section.className +="card col-xs-12 col-sm-6 col-md-4 col-lg-3 ";
+					var header = document.createElement("h2");
+					var title = document.createTextNode(data.title);
+					header.appendChild(title);
+					header.className +="card-title";
+					section.appendChild(header);
+					section.appendChild(self.displayListChild(data.list));
+					document.getElementById("mainCard").appendChild(section);
 				}
-				document.getElementById("mainCard").appendChild(section);
+				self.callSortable();
 			}
-			self.callSortable();
 		})
 		.catch(function( error ) {
 			console.log(error);
