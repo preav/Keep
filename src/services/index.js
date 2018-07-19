@@ -12,7 +12,19 @@ class GetNotesFromJSON{
 	}
 
 	editModal(e) {
-		$('#exampleModalCenter').modal('show');	
+		$('#exampleModalCenter').modal('show');
+		// var elem = e.target.parentElement.parentElement;
+		// var titleValue = elem.querySelector('.headerDiv').innerText;
+		// $('#exampleModalCenter').on('show.bs.modal', function(e) {
+		// 	$('#newTitle').val(titleValue);
+		// 	//console.log("hey");
+		// });
+
+		// $('#exampleModalCenter').on('hide.bs.modal', function (e) {
+		//   $('#newTitle').val('');
+		//   $('input').val('');
+		//   $('.newInnerCheck').prop('checked', false);
+		// });
 	}
 
 	displayListChild(listElement) {
