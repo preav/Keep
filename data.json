@@ -1,113 +1,61 @@
 {
   "collection": [
     {
-      "title": "sd",
+      "title": "List 1",
       "list": [
         {
-          "listValue": "sdfs",
+          "listValue": "item 1",
+          "isChecked": true
+        },
+        {
+          "listValue": "item 2",
+          "isChecked": false
+        },
+        {
+          "listValue": "item 3",
           "isChecked": true
         }
       ],
-      "lastModified": "19/7/2018 17:33:49",
+      "lastModified": "20/7/2018 20:58:9",
       "id": 1
     },
     {
-      "title": "dsfsd",
+      "title": "List 2",
       "list": [
         {
-          "listValue": "dfds",
+          "listValue": "item 1",
           "isChecked": false
         },
         {
-          "listValue": "ds",
+          "listValue": "item 2",
           "isChecked": true
         },
         {
-          "listValue": "fsdf",
+          "listValue": "item 3",
           "isChecked": true
         },
         {
-          "listValue": "ddsfsd",
-          "isChecked": true
-        },
-        {
-          "listValue": "fdsfsdf",
-          "isChecked": false
-        },
-        {
-          "listValue": "ddsfsffsd",
+          "listValue": "item 4",
           "isChecked": false
         }
       ],
-      "lastModified": "19/7/2018 17:34:3",
+      "lastModified": "20/7/2018 21:0:52",
       "id": 2
     },
     {
-      "title": "asdas",
+      "title": "List 3",
       "list": [
         {
-          "listValue": "asdasd",
+          "listValue": "item 1",
           "isChecked": false
         },
         {
-          "listValue": "sd",
-          "isChecked": true
-        },
-        {
-          "listValue": "as",
-          "isChecked": true
-        },
-        {
-          "listValue": "d",
+          "listValue": "item 2",
           "isChecked": false
         }
       ],
-      "lastModified": "19/7/2018 17:34:41",
+      "lastModified": "20/7/2018 21:5:38",
       "id": 3
-    },
-    {
-      "title": "asdas",
-      "list": [
-        {
-          "listValue": "asdaSA",
-          "isChecked": true
-        }
-      ],
-      "lastModified": "19/7/2018 19:13:48",
-      "id": 4
-    },
-    {
-      "title": "asdas",
-      "list": [
-        {
-          "listValue": "asdasd",
-          "isChecked": false
-        }
-      ],
-      "lastModified": "19/7/2018 19:48:49",
-      "id": 5
-    },
-    {
-      "title": "asda",
-      "list": [
-        {
-          "listValue": "asdas",
-          "isChecked": false
-        }
-      ],
-      "lastModified": "19/7/2018 19:50:9",
-      "id": 6
-    },
-    {
-      "title": "sadasd",
-      "list": [
-        {
-          "listValue": "asasdas",
-          "isChecked": false
-        }
-      ],
-      "lastModified": "19/7/2018 20:3:57",
-      "id": 7
     }
   ]
 }

@@ -5,38 +5,52 @@ import getNotesFromJSON from './services';
 import EditList from './controller/EditList';
 
 $('#exampleModalCenter').on('shown.bs.modal', function () {
-	$('#newTitle').trigger('focus')
+	$('#newTitle').trigger('focus');
 });
 
-$('#exampleModalCenter').on('hide.bs.modal', function (e) {
+$('#exampleModalCenter').on('hidden.bs.modal', function (e) {
+  $('.newInputClass').val('');
   $('#newTitle').val('');
-  $('input').val('');
   $('.newInnerCheck').prop('checked', false);
+  $('.dynLi').remove();
 });
+
+window.onload = function() {
+	fetch("http://localhost:3000/collection")
+		.then((resp) =>
+			resp.json())
+		.then(function (datum){ 
+			window.count = datum.length === 0 ? 0 : datum.length;
+		})
+		.catch(function( error ) {
+			console.log(error);
+		})
+}
 
 window.onload = displayListOnBoard();
 
 document.getElementById("btnAddNewList").addEventListener('click', modalOpened);
 document.getElementById("btnSaveNewList").addEventListener('click', modalClosing);
 document.getElementById("btnDismissNewList").addEventListener('click', modalDismiss);
-window.listCounter = -1;
-var newCardObject = {};
-var newListarray = [];
+//window.listCounter = -1;
 
-function modalOpened() {
-	listCounter++;
-	new AddNewList();
+function modalOpened(event) {
+	//listCounter++;
+	new AddNewList(event);
 }
 
 function modalDismiss() {
-	listCounter--;
+	//listCounter--;
 }
 
 function modalClosing() {
-	getTitleValue();
+	var newCardObject = {};
+	var newListarray = [];
+	var getElement = document.getElementById('newTitle').value;
+	newCardObject["title"] = getElement;
 	var getAllListIds = document.getElementsByClassName('newListClass');
 	for (var getListId of getAllListIds){
-		getListValue(getListId.children[0], getListId.children[1]);
+		getListValue(getListId.children[0].children[0].children[0], getListId.children[1], newListarray);
 	}
 	newCardObject["list"] = newListarray;
 	newCardObject["lastModified"] = getLastModifiedTime();
@@ -47,13 +61,7 @@ function modalClosing() {
 	notes.displayOnScreen(newCardObject);
 }
 
-function getTitleValue() {
-	var getElement = document.getElementById('newTitle').value;
-	newCardObject["title"] = getElement;
-}
-
-
-function getListValue(elementCheck, elementInput) {
+function getListValue(elementCheck, elementInput, newListarray) {
 	var singleListObj = {};
 	singleListObj["listValue"] = elementInput.value;
 	singleListObj["isChecked"] = elementCheck.checked ? true : false;
@@ -85,3 +93,11 @@ function checkListArrayValue(array) {
 	}
 	return val;
 }
+
+function editList(x) {
+	var classname = document.getElementsByClassName("edit");
+
+	//get list of all the edits and add event listener to them
+	// inside that event listener, make the modal open up with values from the event that clicked it
+}
+
