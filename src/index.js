@@ -10,6 +10,10 @@ $('#exampleModalCenter').on('hidden.bs.modal', function (e) {
   $('.dynLi').remove();
 });
 
+$('#exampleModalCenter').on('shown.bs.modal', function () {
+	$('#newTitle').trigger('focus');
+});
+
 window.onload = displayListOnBoard();
 
 document.getElementById("btnAddNewList").addEventListener('click', modalOpened);
@@ -23,6 +27,7 @@ function modalClosing() {
 	var newCardObject = {};
 	var newListarray = [];
 	var getElement = document.getElementById('newTitle').value;
+	newCardObject["deleted"] = false;
 	newCardObject["title"] = getElement;
 	var getAllListIds = document.getElementsByClassName('newListClass');
 	for (var getListId of getAllListIds){

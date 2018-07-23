@@ -1,5 +1,4 @@
 import ConvertToJSON from './ConvertToJSON';
-//import getNotesFromJSON from './services';
 const Sortable = require('../../node_modules/sortablejs');
 
 class GetNotesFromJSON{
@@ -27,6 +26,9 @@ class GetNotesFromJSON{
 	}
 
 	saveChanges(e) {
+		var arr = e.target.parentNode.parentNode.parentNode;
+		var i = arr.id.indexOf("-");
+		var id = arr.id.substr(i+1)
 		var newCardObject = {};
 		var newListarray = [];
 		var card = e.target.parentNode.parentNode.childNodes;
@@ -40,10 +42,17 @@ class GetNotesFromJSON{
 			}
 		}
 		newCardObject["list"] = newListarray;
-		newCardObject["lastModified"] = this.getLastModifiedTime();
-		if( newCardObject["title"].length > 0 || (newListarray.length > 0) && checkListArrayValue(newListarray)){
-			new ConvertToJSON(newCardObject).convertToJSON();
-		}
+		var dateValue = this.getLastModifiedTime();
+		newCardObject["lastModified"] = dateValue;
+		var lastModifiedPara = e.target.parentNode.parentNode.childNodes[5];
+		lastModifiedPara.childNodes[1].innerText = " Last modified: "+dateValue;
+		var formData = JSON.stringify(newCardObject);
+		const xhr = new XMLHttpRequest();
+		xhr.open('PATCH', 'http://localhost:3000/collection/' + id);
+		xhr.setRequestHeader('Content-type', 'application/json');
+		xhr.responseType = 'json';
+		xhr.addEventListener('load', () => { });
+		xhr.send(formData);
 		e.target.style.visibility = "hidden";
 	}
 
@@ -55,14 +64,14 @@ class GetNotesFromJSON{
 	}
 
 	getLastModifiedTime() {
-	var currentdate = new Date(); 
-	var datetime = currentdate.getDate() + "/"
-                + (currentdate.getMonth()+1)  + "/" 
-                + currentdate.getFullYear() + " "  
-                + currentdate.getHours() + ":"  
-                + currentdate.getMinutes() + ":" 
-                + currentdate.getSeconds();
-   return datetime;
+		var currentdate = new Date(); 
+		var datetime = currentdate.getDate() + "/"
+            + (currentdate.getMonth()+1)  + "/" 
+            + currentdate.getFullYear() + " "  
+            + currentdate.getHours() + ":"  
+            + currentdate.getMinutes() + ":" 
+            + currentdate.getSeconds();
+	   return datetime;
 	}
 
 	editList(e){
@@ -86,33 +95,55 @@ class GetNotesFromJSON{
 	removeList(e) {
 		var arr = e.target.parentNode.parentNode.parentNode.parentNode;
 		arr.style.display = "none";
+		var i = arr.id.indexOf("-");
+		var id = arr.id.substr(i+1)
+		var url = "http://localhost:3000/collection";
+		var xhr = new XMLHttpRequest();
+		xhr.open("DELETE", url+'/'+id, true);
+		xhr.onload = function () {
+			var result = JSON.parse(xhr.responseText);
+			if (xhr.readyState == 4 && xhr.status == "200") {
+				console.log(result);
+			} else {
+				console.error(result);
+			}
+		}
+		xhr.send(null);
+	}
+
+	archiveList(e) {
+		var arr = e.target.parentNode.parentNode.parentNode.parentNode;
+		arr.style.display = "none";
 	}
 
 	displayOnScreen(data, count = 0){
-		const markup = `
-			<section class="card" id="cardUl-${count}">
-				<div class="card-body">
-					<div class="d-flex headerContainer justify-content-between">
-						<h2 class="card-title headerDiv"> ${data.title} </h2>
-						<div class="wrapperDiv">
-							<i class="far fa-edit edit" id="edit-${count}"></i>
-							<i class="far fa-trash-alt removeList"></i>
+		let markup = ``;
+		if(!data.deleted){
+			markup = `
+				<section class="card" id="cardUl-${data.id}">
+					<div class="card-body">
+						<div class="d-flex headerContainer justify-content-between">
+							<h2 class="card-title headerDiv"> ${data.title} </h2>
+							<div class="wrapperDiv">
+								<i class="far fa-edit edit" id="edit-${count}"></i>
+								<i class="far fa-trash-alt removeList"></i>
+								<i class="fas fa-archive archiveList"></i>
+							</div>
 						</div>
+						<ul class="card-text list-group list-group-flush">
+							${data.list.map(datum => 
+								`<li class="list-group-item"> 
+									<input type="checkbox" ${datum.isChecked? 'checked' : 'unchecked'} onclick="return false">
+									<div class="innerDiv"> ${datum.listValue} </div>
+								</li>`).join('')}
+						</ul>
+						<p class="card-text">
+							<small class="text-muted"> Last modified: ${data.lastModified} </small>
+							<button type="button" class="btn btn-primary btn-sm saveEdit" aria-hidden="true"> Save </button>
+						</p>
 					</div>
-					<ul class="card-text list-group list-group-flush">
-						${data.list.map(datum => 
-							`<li class="list-group-item"> 
-								<input type="checkbox" ${datum.isChecked? 'checked' : 'unchecked'} onclick="return false">
-								<div class="innerDiv"> ${datum.listValue} </div>
-							</li>`).join('')}
-					</ul>
-					<p class="card-text">
-						<small class="text-muted"> Last modified: ${data.lastModified} </small>
-						<button type="button" class="btn btn-primary btn-sm saveEdit" aria-hidden="true"> Save </button>
-					</p>
-				</div>
-			</section>`
-
+				</section>`
+		}
 		document.getElementById("mainCard").innerHTML += markup;
 		var editLists = document.getElementsByClassName("edit");
 		for (var edit of editLists){
@@ -122,11 +153,15 @@ class GetNotesFromJSON{
 		for (var remove of removeList){
 			remove.addEventListener('click', this.removeList);
 		}
+		var archiveList = document.getElementsByClassName("archiveList");
+		for (var archive of archiveList){
+			archive.addEventListener('click', this.archiveList);
+		}
 		var saveChanges = document.getElementsByClassName('saveEdit');
 		for (var save of saveChanges){
 			save.addEventListener('click', (e)=> this.saveChanges(e));
 		}
-		this.callSortable(`cardUl-${count}`);
+		this.callSortable(`cardUl-${data.id}`);
 	}
 }
 export default GetNotesFromJSON;

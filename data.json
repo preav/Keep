@@ -1,387 +1,92 @@
 {
   "collection": [
     {
-      "title": "List 1",
+      "deleted": false,
+      "title": "3",
       "list": [
         {
-          "listValue": "item 1",
+          "listValue": "Heeei",
           "isChecked": true
         },
         {
-          "listValue": "item 2",
+          "listValue": "byesss",
           "isChecked": false
         },
         {
-          "listValue": "item 3",
+          "listValue": "welcome",
           "isChecked": true
         }
       ],
-      "lastModified": "20/7/2018 20:58:9",
-      "id": 1
-    },
-    {
-      "title": "List 2",
-      "list": [
-        {
-          "listValue": "item 1",
-          "isChecked": false
-        },
-        {
-          "listValue": "item 2",
-          "isChecked": true
-        },
-        {
-          "listValue": "item 3",
-          "isChecked": true
-        },
-        {
-          "listValue": "item 4",
-          "isChecked": false
-        }
-      ],
-      "lastModified": "20/7/2018 21:0:52",
+      "lastModified": "23/7/2018 19:3:33",
       "id": 2
     },
     {
-      "title": "List 3",
+      "deleted": false,
+      "title": "5",
       "list": [
         {
-          "listValue": "item 1",
+          "listValue": "dsfds",
           "isChecked": false
         },
         {
-          "listValue": "item 2",
+          "listValue": "sd",
           "isChecked": false
-        }
-      ],
-      "lastModified": "20/7/2018 21:5:38",
-      "id": 3
-    },
-    {
-      "title": "list 1",
-      "list": [
+        },
         {
-          "listValue": "item 1",
+          "listValue": "f",
+          "isChecked": false
+        },
+        {
+          "listValue": "sdaf",
+          "isChecked": false
+        },
+        {
+          "listValue": "sddfdfdfgdfg",
+          "isChecked": false
+        },
+        {
+          "listValue": "dfgfdf",
+          "isChecked": false
+        },
+        {
+          "listValue": "",
           "isChecked": true
-        },
-        {
-          "listValue": "item 2",
-          "isChecked": false
         },
         {
           "listValue": "",
           "isChecked": false
         }
       ],
-      "lastModified": "23/7/2018 11:6:20",
+      "lastModified": "23/7/2018 19:10:52",
       "id": 4
     },
     {
-      "title": "List 4",
+      "deleted": false,
+      "title": "6",
       "list": [
         {
-          "listValue": "Item 1",
+          "listValue": "sDs",
           "isChecked": false
         },
         {
-          "listValue": "item 2",
-          "isChecked": true
+          "listValue": "sd",
+          "isChecked": false
         },
         {
-          "listValue": "item 3",
+          "listValue": "f",
+          "isChecked": false
+        },
+        {
+          "listValue": "sd",
+          "isChecked": false
+        },
+        {
+          "listValue": "ds",
           "isChecked": false
         }
       ],
-      "lastModified": "23/7/2018 13:50:5",
+      "lastModified": "23/7/2018 19:1:49",
       "id": 5
-    },
-    {
-      "title": "List 2 ",
-      "list": [
-        {
-          "listValue": "",
-          "isChecked": false
-        }
-      ],
-      "lastModified": "23/7/2018 14:15:25",
-      "id": 6
-    },
-    {
-      "title": "List 4 ",
-      "list": [
-        {
-          "listValue": "",
-          "isChecked": false
-        }
-      ],
-      "lastModified": "23/7/2018 14:19:43",
-      "id": 7
-    },
-    {
-      "title": "List 4 ",
-      "list": [
-        {
-          "listValue": "",
-          "isChecked": false
-        }
-      ],
-      "lastModified": "23/7/2018 14:34:45",
-      "id": 8
-    },
-    {
-      "title": "hey",
-      "list": [
-        {
-          "listValue": "jkasdjksd",
-          "isChecked": false
-        }
-      ],
-      "lastModified": "23/7/2018 15:8:43",
-      "id": 9
-    },
-    {
-      "title": "dfgdf",
-      "list": [
-        {
-          "listValue": "fgdffgdhf",
-          "isChecked": false
-        },
-        {
-          "listValue": "gfhdf",
-          "isChecked": false
-        },
-        {
-          "listValue": "dh",
-          "isChecked": false
-        },
-        {
-          "listValue": "gf",
-          "isChecked": false
-        },
-        {
-          "listValue": "dh",
-          "isChecked": false
-        },
-        {
-          "listValue": "gf",
-          "isChecked": false
-        }
-      ],
-      "lastModified": "23/7/2018 16:29:27",
-      "id": 10
-    },
-    {
-      "title": "list 1 ",
-      "list": [
-        {
-          "listValue": "item 1 ",
-          "isChecked": true
-        },
-        {
-          "listValue": "item 2 ",
-          "isChecked": false
-        },
-        {
-          "listValue": "",
-          "isChecked": false
-        }
-      ],
-      "lastModified": "23/7/2018 16:42:59",
-      "id": 11
-    },
-    {
-      "title": "list 1 ",
-      "list": [
-        {
-          "listValue": "item 1 ",
-          "isChecked": true
-        },
-        {
-          "listValue": "item 2 ",
-          "isChecked": false
-        },
-        {
-          "listValue": "",
-          "isChecked": true
-        }
-      ],
-      "lastModified": "23/7/2018 16:43:59",
-      "id": 12
-    },
-    {
-      "title": "List 4 ",
-      "list": [
-        {
-          "listValue": "Item 1 ",
-          "isChecked": false
-        },
-        {
-          "listValue": "item 2 ",
-          "isChecked": true
-        },
-        {
-          "listValue": "item 3 ",
-          "isChecked": true
-        }
-      ],
-      "lastModified": "23/7/2018 16:44:42",
-      "id": 13
-    },
-    {
-      "title": "dfgdf",
-      "list": [
-        {
-          "listValue": "fgdffgdhf",
-          "isChecked": false
-        },
-        {
-          "listValue": "gfhdf",
-          "isChecked": false
-        },
-        {
-          "listValue": "dh",
-          "isChecked": false
-        },
-        {
-          "listValue": "gf",
-          "isChecked": true
-        },
-        {
-          "listValue": "dh",
-          "isChecked": true
-        },
-        {
-          "listValue": "gf",
-          "isChecked": true
-        }
-      ],
-      "lastModified": "23/7/2018 16:45:10",
-      "id": 14
-    },
-    {
-      "title": "List 4  ",
-      "list": [
-        {
-          "listValue": "Item 1  ",
-          "isChecked": false
-        },
-        {
-          "listValue": "item 2  ",
-          "isChecked": true
-        },
-        {
-          "listValue": "item 3  ",
-          "isChecked": true
-        }
-      ],
-      "lastModified": "23/7/2018 16:48:6",
-      "id": 15
-    },
-    {
-      "title": "List 4  ",
-      "list": [
-        {
-          "listValue": "Item 1  ",
-          "isChecked": false
-        },
-        {
-          "listValue": "item 2  ",
-          "isChecked": true
-        },
-        {
-          "listValue": "item 3  ",
-          "isChecked": true
-        }
-      ],
-      "lastModified": "23/7/2018 16:48:9",
-      "id": 16
-    },
-    {
-      "title": "list 1  ",
-      "list": [
-        {
-          "listValue": "item 1  ",
-          "isChecked": true
-        },
-        {
-          "listValue": "item 2  ",
-          "isChecked": false
-        },
-        {
-          "listValue": "",
-          "isChecked": true
-        }
-      ],
-      "lastModified": "23/7/2018 16:48:37",
-      "id": 17
-    },
-    {
-      "title": "list 1  ",
-      "list": [
-        {
-          "listValue": "item 1  ",
-          "isChecked": true
-        },
-        {
-          "listValue": "item 2  ",
-          "isChecked": true
-        },
-        {
-          "listValue": "",
-          "isChecked": true
-        }
-      ],
-      "lastModified": "23/7/2018 16:52:13",
-      "id": 18
-    },
-    {
-      "title": "List 1 ",
-      "list": [
-        {
-          "listValue": "item 1 ",
-          "isChecked": true
-        },
-        {
-          "listValue": "item 2 ",
-          "isChecked": false
-        },
-        {
-          "listValue": "item 3 ",
-          "isChecked": true
-        }
-      ],
-      "lastModified": "23/7/2018 16:53:0",
-      "id": 19
-    },
-    {
-      "title": "List 4  ",
-      "list": [
-        {
-          "listValue": "",
-          "isChecked": false
-        }
-      ],
-      "lastModified": "23/7/2018 16:53:6",
-      "id": 20
-    },
-    {
-      "title": "List 1 ",
-      "list": [
-        {
-          "listValue": "item 1 ",
-          "isChecked": true
-        },
-        {
-          "listValue": "item 2 ",
-          "isChecked": false
-        },
-        {
-          "listValue": "item 3 ",
-          "isChecked": true
-        }
-      ],
-      "lastModified": "23/7/2018 16:57:2",
-      "id": 21
     }
   ]
 }
