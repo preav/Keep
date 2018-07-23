@@ -24,7 +24,7 @@ class AddNewList{
 			var generateListId = "List-"+this.count;
 			var generateCheckId = "Check-"+this.count;
 			var template = `
-			<li name=${generateListId} id=${generateListId} class="newListClass dynLi input-group mb-3">
+			<li id=${generateListId} class="newListClass dynLi input-group mb-3">
 	  			<div class="input-group-prepend">
 	  				<div class="input-group-text">
 	  					<input type="checkbox" id=${generateCheckId} class="newInnerCheck" aria-label="Checkbox for following text input">

@@ -22,36 +22,33 @@
 					<div class="card-columns" id="mainCard"></div>
 				</div>
 			</div>
-			<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-			  <div class="modal-dialog" role="document">
-			    <div class="modal-content">
-			      <div class="modal-header">
-			        <h5 class="modal-title" id="exampleModalCenterTitle">
-			        	<input type="text" name="newListTitle" class="newListTitle form-control" id="newTitle" placeholder="Title" aria-label="title">
-			        </h5>
-			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-			          <span aria-hidden="true">&times;</span>
-			        </button>
-			      </div>
-			      <div class="modal-body" id="newList">
-			      	<ul id="newListUl" class="newOuterList">
-			      		<div>
-				      		<li id="List-0" name="newInnerList" class="newListClass input-group mb-3">
-				      			<div class="input-group-prepend">
-				      				<div class="input-group-text">
-				      					<input type="checkbox" id="Check-0" class="newInnerCheck" aria-label="checkbox for input">
-				      				</div>
-				      			</div>
-				      			<input type="text" name="newInnerInput" id="Input-0" class="newInputClass form-control" placeholder="List item" aria-label="text input">
-				      		</li>
-				      	</div>
-			      	</ul>
-			      <div class="modal-footer">
-			        <button type="button" id="btnDismissNewList" class="btn btn-secondary" data-dismiss="modal">Close</button>
-			        <button type="submit" id="btnSaveNewList" data-dismiss="modal" class="btn btn-primary"> Add </button>
-			      </div>
-			    </div>
-			  </div>
+			<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-label="exampleModalCenterTitle" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+				    <div class="modal-content">
+						<div class="modal-header">
+							<input type="text" name="newListTitle" class="newListTitle form-control" id="newTitle" placeholder="Title" aria-label="title">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							  <span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+				      	<div class="modal-body" id="newList">
+					      	<ul id="newListUl" class="newOuterList">
+					      		<li id="List-0" class="newListClass input-group mb-3">
+					      			<div class="input-group-prepend">
+					      				<div class="input-group-text">
+					      					<input type="checkbox" id="Check-0" class="newInnerCheck" aria-label="checkbox for input">
+					      				</div>
+					      			</div>
+					      			<input type="text" name="newInnerInput" id="Input-0" class="newInputClass form-control" placeholder="List item" aria-label="text input">
+					      		</li>
+					      	</ul>
+				      		<div class="modal-footer">
+						        <button type="button" id="btnDismissNewList" class="btn btn-secondary" data-dismiss="modal">Close</button>
+						        <button type="submit" id="btnSaveNewList" data-dismiss="modal" class="btn btn-primary"> Add </button>
+				      		</div>
+				   		</div>
+				  	</div>
+				</div>
 			</div>
 		</main>
 	</div>
