@@ -3,8 +3,8 @@ const Sortable = require('../../node_modules/sortablejs');
 
 class GetNotesFromJSON{
 
-	callSortable(val) {
-		var cardUl = document.getElementById(val);
+	callSortable(valUl) {
+		var cardUl = document.getElementById(valUl);
 		var mainCard = document.getElementById('mainCard');
 		Sortable.create(cardUl);
 		Sortable.create(mainCard);
