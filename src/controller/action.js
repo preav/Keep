@@ -13,5 +13,5 @@ const actionType = (state = {}, action) => {
   }
 };
 
-const store = createStore(actionType);
-console.log(store.getState);
+// const store = createStore(actionType);
+// console.log(store.getState);

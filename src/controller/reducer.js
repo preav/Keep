@@ -1,3 +1,4 @@
+//check how to make this reducer
 class Reducer{
 	const counter = (state = {}, action) => {
 	  switch (action.type) {
