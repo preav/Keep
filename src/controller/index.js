@@ -1,29 +1,30 @@
-class AddNewList{
+import ModalList from '../views/ModalList';
 
-	constructor(event){
-		this.count = 0;
-		this.inputList = [];
-		var newListId = document.getElementById("Input-0");
-		newListId.addEventListener('keyup', (e) => { this.addNewList(e) });
-	}
+class AddNewList {
+  constructor(event) {
+    this.count = 0;
+    this.inputList = [];
+    const newListId = document.getElementById('Input-0');
+    newListId.addEventListener('keyup', (e) => { this.addNewList(e); });
+  }
 
-	checkEmptySibling(){
-		var classes = document.getElementsByClassName("newInputClass");
-		for (var inside of classes){
-			if (inside.value.length < 1){
-					return false;
-				}
-			}
-		return true;
-	}
+  checkEmptySibling() {
+    const classes = document.getElementsByClassName('newInputClass');
+    for (const inside of classes) {
+      if (inside.value.length < 1) {
+        return false;
+      }
+    }
+    return true;
+  }
 
-	addNewList(event){
-		if (event.keyCode === 13 && (document.activeElement.value.length>0)){
-			this.count++;
-			var generateInputId = "Input-"+this.count;
-			var generateListId = "List-"+this.count;
-			var generateCheckId = "Check-"+this.count;
-			var template = `
+  addNewList(event, count) {
+    if (event.keyCode === 13 && (document.activeElement.value.length > 0)) {
+      this.count++;
+      const generateInputId = `Input-${this.count}`;
+      const generateListId = `List-${this.count}`;
+      const generateCheckId = `Check-${this.count}`;
+      const template = `
 			<li id=${generateListId} class="newListClass dynLi input-group mb-3">
 	  			<div class="input-group-prepend">
 	  				<div class="input-group-text">
@@ -32,15 +33,15 @@ class AddNewList{
 	  			</div>
 	  			<input type="text" name=${generateInputId} id=${generateInputId} class="newInputClass 
 	  			form-control" placeholder="List item" aria-label="Text input with checkbox">
-			</li>`
-			var dynDiv = document.createElement('div')
-			dynDiv.innerHTML += template; 
-			document.getElementById("newListUl").appendChild(dynDiv)
-			document.getElementById(`${generateListId}`).addEventListener('keyup', (e) => {this.addNewList(e)});
-			var nextList = document.getElementById(`${generateInputId}`);
-			nextList.focus();
-		}
-	}
+			</li>`;
+      const dynDiv = document.createElement('div');
+      dynDiv.innerHTML += template;
+      document.getElementById('newListUl').appendChild(dynDiv);
+      document.getElementById(`${generateListId}`).addEventListener('keyup', (e) => { this.addNewList(e); });
+      const nextList = document.getElementById(`${generateInputId}`);
+      nextList.focus();
+    }
+  }
 }
 
 export default AddNewList;

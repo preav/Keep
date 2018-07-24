@@ -1,19 +1,13 @@
-class ConvertToJSON{
-	constructor(stringObj){
-		this.stringObj = stringObj;
-	}
+import submitToJSON from './SubmitToJSON';
 
-	convertToJSON() {
-		var strJSON = JSON.stringify(this.stringObj);
-		this.submitToJSON(strJSON);
-	}
+class ConvertToJSON {
+  constructor(stringObj) {
+    this.stringObj = stringObj;
+  }
 
-	submitToJSON(strJSON) {
-		var xhttp = new XMLHttpRequest();
-		xhttp.open("POST", "http://localhost:3000/collection", true);
-		xhttp.setRequestHeader("Content-type", "application/json");
-		xhttp.send(strJSON);
-	}
+  convertToJSON() {
+    return JSON.stringify(this.stringObj);
+  }
 }
 
 export default ConvertToJSON;
