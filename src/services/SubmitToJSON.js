@@ -1,3 +1,5 @@
+
+
 class SubmitToJSON {
  	submitToJSON(strJSON) {
     const xhttp = new XMLHttpRequest();
@@ -6,5 +8,6 @@ class SubmitToJSON {
     xhttp.send(strJSON);
   }
 }
+
 
 export default SubmitToJSON;

@@ -1,16 +1,15 @@
 import { createStore } from 'Redux';
-class Store{
+import { Operations } from '../controller/reducer';
 
-	fetchData() {
-		fetch("http://localhost:3000/collection")
-      	.then(resp => resp.json())
-      	.then((datum) => {
-      		createStore()
-      	})
-      	.catch((error) => {
-        	console.log(error);
-      	});
-	}
-}
+const initialState = [{
+      "archived": false,
+      "deleted": false,
+      "editable": false,
+      "title": "",
+      "list": [],
+      "lastModified": "",
+    }];
 
-export default Store;
+export const store = createStore(Operations, initialState);
+
+console.log(store.getState());

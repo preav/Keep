@@ -2,7 +2,6 @@ import AddNewList from './controller';
 import ConvertToJSON from './services/ConvertToJSON';
 import SubmitToJSON from './services/SubmitToJSON';
 import getNotesFromJSON from './services';
-
 require('./scss/index.scss');
 
 $('#exampleModalCenter').on('hidden.bs.modal', (e) => {
@@ -30,6 +29,8 @@ function modalClosing() {
   const newListarray = [];
   const getElement = document.getElementById('newTitle').value;
   newCardObject.archived = false;
+  newCardObject.deleted = false;
+   newCardObject.editable = false;
   newCardObject.title = getElement;
   const getAllListIds = document.getElementsByClassName('newListClass');
   for (const getListId of getAllListIds) {

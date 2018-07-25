@@ -1,5 +1,6 @@
 import ConvertToJSON from './ConvertToJSON';
 import Cards from '../views/Cards';
+import { store } from './Store';
 
 const Sortable = require('../../node_modules/sortablejs');
 
@@ -21,6 +22,11 @@ class GetNotesFromJSON {
           cards.displayOnScreen(data, data.length);
           self.addListeners(data.id);
         }
+        store.dispatch({
+          type: 'DEFAULT',
+          data: datum
+        })
+        console.log(store.getState())
       })
       .catch((error) => {
         console.log(error);
