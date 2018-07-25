@@ -1,4 +1,4 @@
-export function Operations(state = {}, action) {
+export function ReducerMain(state = {}, action) {
   switch (action.type) {
     case 'ADD':
       return [

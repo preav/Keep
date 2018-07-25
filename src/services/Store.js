@@ -1,5 +1,5 @@
 import { createStore } from 'Redux';
-import { Operations } from '../controller/reducer';
+import { ReducerMain } from '../controller/reducer';
 
 const initialState = [{
       "archived": false,
@@ -10,6 +10,6 @@ const initialState = [{
       "lastModified": "",
     }];
 
-export const store = createStore(Operations, initialState);
+export const store = createStore(ReducerMain, initialState);
 
 console.log(store.getState());

@@ -2,21 +2,11 @@ import AddNewList from './controller';
 import ConvertToJSON from './services/ConvertToJSON';
 import SubmitToJSON from './services/SubmitToJSON';
 import getNotesFromJSON from './services';
+import Modal from './controller/Modal';
 require('./scss/index.scss');
 
-$('#exampleModalCenter').on('hidden.bs.modal', (e) => {
-  $('.newInputClass').val('');
-  $('#newTitle').val('');
-  $('.newInnerCheck').prop('checked', false);
-  $('.dynLi').remove();
-});
-
-$('#exampleModalCenter').on('shown.bs.modal', () => {
-  $('#newTitle').trigger('focus');
-});
-
+Modal();
 window.onload = displayListOnBoard();
-
 document.getElementById('btnAddNewList').addEventListener('click', modalOpened);
 document.getElementById('btnSaveNewList').addEventListener('click', modalClosing);
 

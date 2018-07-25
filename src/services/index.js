@@ -1,16 +1,9 @@
 import ConvertToJSON from './ConvertToJSON';
 import Cards from '../views/Cards';
 import { store } from './Store';
-
-const Sortable = require('../../node_modules/sortablejs');
+import callSortable from '../controller/sortable';
 
 class GetNotesFromJSON {
-  callSortable(valUl) {
-    const cardUl = document.getElementById(valUl);
-    const mainCard = document.getElementById('mainCard');
-    Sortable.create(cardUl);
-    Sortable.create(mainCard);
-  }
 
   getNotesFromJSON(url) {
     const cards = new Cards();
@@ -141,7 +134,7 @@ class GetNotesFromJSON {
     for (const save of saveChanges) {
       save.addEventListener('click', e => this.saveChanges(e));
     }
-    this.callSortable(`cardUl-${id}`);
+    callSortable(`cardUl-${id}`);
   }
 }
 export default GetNotesFromJSON;
