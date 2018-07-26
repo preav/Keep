@@ -1,3 +1,4 @@
+// require('../../node_modules/@fortawesome/fontawesome-free/css/all.css');
 import { store } from '../services/store';
 import EditCard from '../controller/editCard';
 import RemoveCard from '../controller/removeCard';

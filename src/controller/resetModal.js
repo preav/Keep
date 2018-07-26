@@ -1,3 +1,5 @@
+var $ = require("jquery");
+
 export default function ResetModal() {
 	$('#exampleModalCenter').on('hidden.bs.modal', (e) => {
 	  $('.newInputClass').val('');

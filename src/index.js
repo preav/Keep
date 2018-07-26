@@ -1,4 +1,7 @@
 require('./scss/index.scss');
+var $ = require("jquery");
+require('../node_modules/popper.js');
+require('../node_modules/bootstrap/dist/js/bootstrap.min.js');
 import ConvertToJSON from './services/convertToJSON';
 import SubmitToJSON from './services/submitToJSON';
 import Modal from './controller/modal';

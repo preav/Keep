@@ -27,7 +27,6 @@ class SaveCard{
     	type: 'SAVE',
     	data: newCardObject
     })
-    console.log(store.getState())
     const formData = JSON.stringify(newCardObject);
     const xhr = new XMLHttpRequest();
     xhr.open('PATCH', `http://localhost:3000/collection/${id}`);
