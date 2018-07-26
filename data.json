@@ -4,23 +4,53 @@
       "archived": false,
       "deleted": false,
       "editable": false,
-      "title": "Title 1 ",
+      "title": "sdfasdf",
       "list": [
         {
-          "listValue": "List 1 ",
-          "isChecked": false
-        },
-        {
-          "listValue": "List 2 ",
-          "isChecked": true
-        },
-        {
-          "listValue": "List 3 ",
+          "listValue": "ghjfgjg",
           "isChecked": false
         }
       ],
-      "lastModified": "25/7/2018 13:52:2",
+      "lastModified": "26/7/2018 19:43:28",
       "id": 1
+    },
+    {
+      "archived": false,
+      "deleted": false,
+      "editable": false,
+      "title": "dsafsd",
+      "list": [
+        {
+          "listValue": "fsdfd",
+          "isChecked": false
+        },
+        {
+          "listValue": "sdf",
+          "isChecked": false
+        },
+        {
+          "listValue": "df",
+          "isChecked": false
+        },
+        {
+          "listValue": "f",
+          "isChecked": false
+        },
+        {
+          "listValue": "sd",
+          "isChecked": false
+        },
+        {
+          "listValue": "",
+          "isChecked": false
+        },
+        {
+          "listValue": "",
+          "isChecked": false
+        }
+      ],
+      "lastModified": "26/7/2018 19:44:36",
+      "id": 3
     }
   ]
 }

@@ -7,9 +7,7 @@ const initialState = [{
       "editable": false,
       "title": "",
       "list": [],
-      "lastModified": "",
+      "lastModified": ""
     }];
 
 export const store = createStore(ReducerMain, initialState);
-
-console.log(store.getState());

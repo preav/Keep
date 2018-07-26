@@ -1,5 +1,3 @@
-import ModalList from '../views/ModalList';
-
 class AddNewList {
   constructor(event) {
     this.count = 0;

@@ -1,4 +1,4 @@
-import submitToJSON from './SubmitToJSON';
+import SubmitToJSON from './submitToJSON';
 
 class ConvertToJSON {
   constructor(stringObj) {

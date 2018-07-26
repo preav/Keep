@@ -24,15 +24,15 @@ function SingleObject(state, action) {
   switch(action.type){
     case 'ADD':
       return {
-        archived: action.archived,
-        deleted: action.editable,
-        editable: action.editable,
-        title: action.title,
-        list: action.list.map((li) => { return {
+        'archived': action.data.archived,
+        'deleted': action.data.editable,
+        'editable': action.data.editable,
+        'title': action.data.title,
+        'list': action.data.list.map((li) => { return {
           'listValue': li.listValue,
           'isChecked': li.isChecked
         }}),
-        lastModified: action.lastModified,
+        'lastModified': action.data.lastModified
       }
     case 'EDIT':
       return state.id;
