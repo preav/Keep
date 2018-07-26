@@ -1,3 +1,5 @@
+import { store } from '../services/store';
+
 class SaveCard{
   saveChanges(e) {
     const arr = e.target.parentNode.parentNode.parentNode;
@@ -20,6 +22,12 @@ class SaveCard{
     newCardObject.lastModified = dateValue;
     const lastModifiedPara = e.target.parentNode.parentNode.childNodes[5];
     lastModifiedPara.childNodes[1].innerText = ` Last modified: ${dateValue}`;
+    newCardObject.id = parseInt(id);
+    store.dispatch({
+    	type: 'SAVE',
+    	data: newCardObject
+    })
+    console.log(store.getState())
     const formData = JSON.stringify(newCardObject);
     const xhr = new XMLHttpRequest();
     xhr.open('PATCH', `http://localhost:3000/collection/${id}`);
@@ -45,7 +53,7 @@ class SaveCard{
       currentdate.getHours()}:${
       currentdate.getMinutes()}:${
       currentdate.getSeconds()}`;
-	   return datetime;
+	  return datetime;
   }
 }
 

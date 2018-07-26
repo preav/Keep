@@ -3,11 +3,10 @@ import { ReducerMain } from '../controller/reducer';
 
 const initialState = [{
       "archived": false,
-      "deleted": false,
-      "editable": false,
       "title": "",
       "list": [],
-      "lastModified": ""
+      "lastModified": "",
+      "id": 0
     }];
 
 export const store = createStore(ReducerMain, initialState);

@@ -5,14 +5,12 @@ export function ReducerMain(state = {}, action) {
         ...state,
         SingleObject(undefined, action)
       ]
-    case 'EDIT':
-      return state;
     case 'DELETE':
-      return state.map(t => SingleObject(t, action))
+      return state.filter(({ id }) => id !== action.data);
     case 'ARCHIVE':
-      return state.map(t => SingleObject(t, action))
+      return [...state.map(t => SingleObject(t, action))];
     case 'SAVE':
-      return Object.assign([...state, 'save']);
+      return [...state.filter(({ id }) => id !== action.data.id), action.data];
     case 'DEFAULT':
       return action.data;
     default:
@@ -25,28 +23,16 @@ function SingleObject(state, action) {
     case 'ADD':
       return {
         'archived': action.data.archived,
-        'deleted': action.data.editable,
-        'editable': action.data.editable,
         'title': action.data.title,
         'list': action.data.list.map((li) => { return {
           'listValue': li.listValue,
           'isChecked': li.isChecked
         }}),
-        'lastModified': action.data.lastModified
+        'lastModified': action.data.lastModified,
+        'id': action.data.id
       }
-    case 'EDIT':
-      return state.id;
-    case 'DELETE':
-      if (state.id !== action.id) {
-        return state;
-      }
-      return Object.assign(
-        {},
-        state,
-        { deleted: true }
-      )
     case 'ARCHIVE':
-      if (state.id !== action.id) {
+      if (state.id !== action.data) {
         return state;
       }
       return Object.assign(

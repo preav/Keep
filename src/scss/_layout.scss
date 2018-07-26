@@ -17,6 +17,7 @@ header{
 
 [contenteditable]:focus {
     outline: 0px solid transparent;
+    //padding: 10px;
 }
 
 
@@ -35,4 +36,19 @@ header{
 .saveEdit{
 	visibility: hidden;
 	float: right;
+	word-wrap: break-word;
+}
+
+
+section{
+	box-shadow: 6px 6px 4px -2px #D3D3D3;
+}
+
+.headerDiv{
+	padding: 10px;
+	width: 80%;
+}
+
+.wrapperDiv{
+	width: 20%;
 }

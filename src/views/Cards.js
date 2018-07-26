@@ -1,8 +1,9 @@
 import { store } from '../services/store';
-import EditCard from '../controller/EditCard';
-import RemoveCard from '../controller/RemoveCard';
-import ArchiveCard from '../controller/ArchiveCard';
-import SaveCard from '../controller/SaveCard';
+import EditCard from '../controller/editCard';
+import RemoveCard from '../controller/removeCard';
+import ArchiveCard from '../controller/archiveCard';
+import SaveCard from '../controller/saveCard';
+import SortableCards from '../controller/sortable';
 
 class Cards {
 	populateCards(prevState, nextState) {
@@ -13,19 +14,21 @@ class Cards {
 		let getData = store.getState();
 		getData.map((data) => {
 	    	let markup = '';
+	    	let id = 0;
+	    	id = (getData.length > 0)? data.id : 0;
 		    if (!data.archived) {
 	      		markup = `
-					<section class="card" id="cardUl-${data.id}">
+					<section class="card" id="cardUl-${id}">
 						<div class="card-body">
 							<div class="d-flex headerContainer justify-content-between">
 								<h2 class="card-title headerDiv"> ${data.title} </h2>
 								<div class="wrapperDiv">
-									<i class="far fa-edit edit" id="edit-${data.id}"></i>
+									<i class="far fa-edit edit" id="edit-${id}"></i>
 									<i class="far fa-trash-alt removeList"></i>
 									<i class="fas fa-archive archiveList"></i>
 								</div>
 							</div>
-							<ul class="card-text list-group list-group-flush">
+							<ul class="card-text list-group list-group-flush" id="List-${id}">
 								${data.list.map(datum => `<li class="list-group-item"> 
 										<input type="checkbox" ${datum.isChecked ? 'checked' : 'unchecked'}>
 										<div class="innerDiv"> ${datum.listValue} </div>
@@ -38,7 +41,8 @@ class Cards {
 						</div>
 					</section>`;
 	    	}
-    	return document.getElementById('mainCard').innerHTML += markup;
+    	document.getElementById('mainCard').innerHTML += markup;
+    	new SortableCards().callSortable();
     	})
     	const editLists = document.getElementsByClassName('edit');
 	    for (let edit of editLists) {

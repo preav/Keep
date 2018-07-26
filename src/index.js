@@ -1,7 +1,6 @@
 require('./scss/index.scss');
 import ConvertToJSON from './services/convertToJSON';
 import SubmitToJSON from './services/submitToJSON';
-import getNotesFromJSON from './services';
 import Modal from './controller/modal';
 import { store } from './services/store';
 import JSONToStore from './services/jsonToStore'

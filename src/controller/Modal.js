@@ -21,9 +21,8 @@ class Modal{
 		const newListarray = [];
 		const getElement = document.getElementById('newTitle').value;
 		newCardObject.archived = false;
-		newCardObject.deleted = false;
-		newCardObject.editable = false;
 		newCardObject.title = getElement;
+		newCardObject.id = store.getState().length+1;
 		const getAllListIds = document.getElementsByClassName('newListClass');
 		for (const getListId of getAllListIds) { 
 			let singleListObj = {};
@@ -35,12 +34,12 @@ class Modal{
 		}
 		newCardObject.list = newListarray;
 		newCardObject.lastModified = self.getLastModifiedTime();
+		var jsonObj = new ConvertToJSON(newCardObject).convertToJSON();
+		new SubmitToJSON().submitToJSON(jsonObj);
 		store.dispatch({
 			type: 'ADD',
 			data: newCardObject
 		})
-		var jsonObj = new ConvertToJSON(newCardObject).convertToJSON();
-		new SubmitToJSON().submitToJSON(jsonObj);
 	}
 
 	getLastModifiedTime() {
