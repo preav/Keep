@@ -8,8 +8,8 @@ export default class JSONToStore {
       .then((datum) => {
         store.dispatch({
           type: 'DEFAULT',
-          data: datum
-        })
+          data: datum,
+        });
       })
       .catch((error) => {
         console.log(error);

@@ -3,8 +3,8 @@ export function ReducerMain(state = {}, action) {
     case 'ADD':
       return [
         ...state,
-        SingleObject(undefined, action)
-      ]
+        SingleObject(undefined, action),
+      ];
     case 'DELETE':
       return state.filter(({ id }) => id !== action.data);
     case 'ARCHIVE':
@@ -19,18 +19,18 @@ export function ReducerMain(state = {}, action) {
 }
 
 function SingleObject(state, action) {
-  switch(action.type){
+  switch (action.type) {
     case 'ADD':
       return {
-        'archived': action.data.archived,
-        'title': action.data.title,
-        'list': action.data.list.map((li) => { return {
-          'listValue': li.listValue,
-          'isChecked': li.isChecked
-        }}),
-        'lastModified': action.data.lastModified,
-        'id': action.data.id
-      }
+        archived: action.data.archived,
+        title: action.data.title,
+        list: action.data.list.map(li => ({
+          listValue: li.listValue,
+          isChecked: li.isChecked,
+        })),
+        lastModified: action.data.lastModified,
+        id: action.data.id,
+      };
     case 'ARCHIVE':
       if (state.id !== action.data) {
         return state;
@@ -39,7 +39,7 @@ function SingleObject(state, action) {
         {},
         state,
         { archived: !state.archived }
-      )
+      );
     case 'SAVE':
       return state.id;
     default:

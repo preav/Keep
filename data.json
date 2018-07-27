@@ -1,76 +1,28 @@
 {
   "collection": [
     {
-      "archived": true,
-      "title": "Title 4",
-      "id": 1,
+      "archived": false,
+      "title": "Title 2",
+      "id": 2,
+      "list": [
+        {
+          "listValue": "List 1",
+          "isChecked": true
+        }
+      ],
+      "lastModified": "27/7/2018 15:42:2"
+    },
+    {
+      "archived": false,
+      "title": "Title 3",
+      "id": 3,
       "list": [
         {
           "listValue": "List 1",
           "isChecked": false
         }
       ],
-      "lastModified": "26/7/2018 21:29:7"
-    },
-    {
-      "archived": true,
-      "title": "Title 2",
-      "id": 2,
-      "list": [
-        {
-          "listValue": "List 1\n",
-          "isChecked": true
-        }
-      ],
-      "lastModified": "26/7/2018 21:28:44"
-    },
-    {
-      "archived": true,
-      "title": "Title 1",
-      "id": 3,
-      "list": [
-        {
-          "listValue": "",
-          "isChecked": true
-        }
-      ],
-      "lastModified": "26/7/2018 21:28:13"
-    },
-    {
-      "archived": true,
-      "title": "Title 3",
-      "id": 4,
-      "list": [
-        {
-          "listValue": "List 2",
-          "isChecked": false
-        }
-      ],
-      "lastModified": "26/7/2018 21:28:54"
-    },
-    {
-      "archived": false,
-      "title": "sadfds",
-      "id": 7,
-      "list": [
-        {
-          "listValue": "dsfdasfsd",
-          "isChecked": false
-        }
-      ],
-      "lastModified": "26/7/2018 23:1:3"
-    },
-    {
-      "archived": false,
-      "title": "asd",
-      "id": 6,
-      "list": [
-        {
-          "listValue": "asdasdas",
-          "isChecked": false
-        }
-      ],
-      "lastModified": "26/7/2018 23:2:55"
+      "lastModified": "27/7/2018 15:42:11"
     }
   ]
 }

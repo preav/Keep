@@ -1,6 +1,6 @@
 import { store } from '../services/store';
 
-class SaveCard{
+class SaveCard {
   saveChanges(e) {
     const arr = e.target.parentNode.parentNode.parentNode;
     const i = arr.id.indexOf('-');
@@ -25,8 +25,8 @@ class SaveCard{
     newCardObject.id = parseInt(id);
     store.dispatch({
     	type: 'SAVE',
-    	data: newCardObject
-    })
+    	data: newCardObject,
+    });
     const formData = JSON.stringify(newCardObject);
     const xhr = new XMLHttpRequest();
     xhr.open('PATCH', `http://localhost:3000/collection/${id}`);
